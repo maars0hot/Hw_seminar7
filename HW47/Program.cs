@@ -10,33 +10,33 @@
 // 8 7,8 -7,1 9
 
 
-int[ , ] CreateMatrixRandomInt(int rows,int columns, int min, int max)
+double[,] CreateMatrixRandomInt(int rows, int columns)
 {
-                           //0     1
-    int[,] matrix = new int[rows,columns];
+    //0     1
+    double[,] matrix = new double[rows, columns];
     Random random = new Random();
     for (int i = 0; i < rows; i++)  //matrix.GetLenght(0)
     {
         for (int j = 0; j < columns; j++)   //matrix.GetLenght(1)
         {
-            matrix [i,j] = random.Next(min, max + 1);
+            matrix[i,j] = Convert.ToDouble(random.Next(-100, 100)/10.0);
         }
     }
     return matrix;
 }
 
-void PrintMatrix(int[,] matrix)
+void PrintMatrix(double[,] matrix)
 {
     for (int i = 0; i < matrix.GetLength(0); i++)
     {
         Console.Write(" = ");
         for (int j = 0; j < matrix.GetLength(1); j++)
         {
-            Console.Write($"{matrix[i,j], 4}");
+            Console.Write($"{matrix[i, j],6}");
         }
         Console.WriteLine(" = ");
     }
 }
 
-int [,] array2d = CreateMatrixRandomInt(3,4,-10,10);
+double[,] array2d = CreateMatrixRandomInt(5, 5);
 PrintMatrix(array2d);
